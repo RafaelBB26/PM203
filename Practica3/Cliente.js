@@ -1,14 +1,9 @@
-// ========================================
-// CLIENTE - CoffeeCode
-// Módulo 03: Menú interactivo en consola
-// Conceptos: map(), forEach(), template strings
-// ========================================
+
 
 const readline = require("readline");
 const { catalogo, obtenerPorCategoria, obtenerDisponibles, obtenerCategorias, obtenerProductosBaratos, obtenerProductosCaros, obtenerBebidas, obtenerPostres } = require("./cocina");
 const { agregarPedido, verPedidos, obtenerTotal, verResumenPedido, TASA_IVA } = require("./caja");
 
-// Crear interfaz para leer datos del usuario
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
@@ -25,7 +20,6 @@ function preguntar(texto) {
 function mostrarEncabezado() {
     console.log(`\n`);
     console.log(`  ══════════════════════════════════════════════`);
-    
     console.log(`           C O F F E E C O D E                  `);
     console.log(`         Tu cafetería favorita de código        `);
     console.log(`  ══════════════════════════════════════════════`);
@@ -138,7 +132,6 @@ function mostrarInfoCliente(numeroPedido) {
     console.log(`  Productos ordenados:`);
     console.log(``);
 
-    // Usar forEach() en lugar de for
     pedido.productos.forEach(prod => {
         console.log(`    > ${prod.nombre}  -----  $${prod.precio}.00`);
     });
@@ -157,7 +150,7 @@ function mostrarResumenVentas() {
     const pedidos = verPedidos();
     const total = obtenerTotal();
 
-    console.log(\n);
+    console.log(`\n`);
     console.log(`  ══════════════════════════════════════════════`);
     console.log(`             RESUMEN DE VENTAS                  `);
     console.log(`  ══════════════════════════════════════════════`);
@@ -237,22 +230,21 @@ async function menuFiltros() {
 }
 
 function mostrarOpciones() {
-    console.log(`\n  ===========================================`);
+    console.log(`\n  =========================================`);
     console.log(`             Que deseas hacer?              `);
-    console.log(`  ──────────────────────────────────────────`);
-    console.log(`  │  1. Ver menu de productos                  │`);
-    console.log(`  │  2. Hacer un pedido                        │`);
-    console.log(`  │  3. Ver ticket de un pedido                │`);
-    console.log(`  │  4. Ver resumen de ventas                  │`);
-    console.log(`  │  5. Ver catalogo (tabla)                   │`);
-    console.log(`  │  6. Ver promociones                        │`);
-    console.log(`  │  7. Ver productos disponibles              │`);
-    console.log(`  │  8. Filtrar productos                      │`);
-    console.log(`  │  9. Salir                                  │`);
-    console.log(`  └──────────────────────────────────────────┘`);
+    console.log(`    ─────────────────────────────────────────`);
+    console.log(`    1. Ver menu de productos                 `);
+    console.log(`    2. Hacer un pedido                       `);
+    console.log(`    3. Ver ticket de un pedido               `);
+    console.log(`    4. Ver resumen de ventas                 `);
+    console.log(`    5. Ver catalogo (tabla)                  `);
+    console.log(`    6. Ver promociones                       `);
+    console.log(`    7. Ver productos disponibles             `);
+    console.log(`    8. Filtrar productos                     `);
+    console.log(`    9. Salir                                 `);
+    console.log(`    =========================================`);
 }
 
-// ── Función para hacer un pedido interactivo ──
 async function hacerPedido() {
     console.log(`\n  -- NUEVO PEDIDO --\n`);
 
@@ -263,7 +255,6 @@ async function hacerPedido() {
         return;
     }
 
-    // Mostrar menú dinámico para que elija
     mostrarMenuDinamico();
 
     console.log(`\n  Ingresa los numeros de los productos separados por coma.`);
@@ -271,7 +262,6 @@ async function hacerPedido() {
 
     const seleccion = await preguntar("  Tu seleccion -> ");
 
-    // Usar map() para convertir la entrada a un array de IDs
     const ids = seleccion.split(",").map(id => parseInt(id.trim())).filter(id => !isNaN(id));
 
     if (ids.length === 0) {
@@ -279,7 +269,6 @@ async function hacerPedido() {
         return;
     }
 
-    // Registrar el pedido (caja.js calcula subtotal con reduce, IVA y total automáticamente)
     const pedido = agregarPedido(nombre, ids);
 
     if (pedido.productos.length === 0) {
@@ -289,11 +278,9 @@ async function hacerPedido() {
 
     console.log(`\n  Pedido #${pedido.numeroPedido} registrado exitosamente!`);
 
-    // Mostrar ticket automáticamente con subtotal, IVA y total
     mostrarInfoCliente(pedido.numeroPedido);
 }
 
-// ── Función para buscar un ticket ──
 async function buscarTicket() {
     const entrada = await preguntar("\n  Ingresa el numero de pedido -> ");
     const numero = parseInt(entrada);
@@ -337,7 +324,6 @@ async function iniciar() {
 
             case "5":
                 console.log(`\n  Catalogo completo (vista tabla):\n`);
-                // Usar map() para transformar los datos a formato tabla
                 console.table(obtenerDisponibles().map(p => ({
                     ID: p.id,
                     Producto: p.nombre,
@@ -377,5 +363,4 @@ async function iniciar() {
     rl.close();
 }
 
-// Iniciar el sistema
 iniciar();
