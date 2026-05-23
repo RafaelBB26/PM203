@@ -16,7 +16,7 @@ function preguntar(texto) {
 function esperar(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
-
+//
 function mostrarEncabezado() {
     console.log('\n');
     console.log(`  ══════════════════════════════════════════════`);

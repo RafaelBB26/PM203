@@ -362,5 +362,4 @@ async function iniciar() {
 
     rl.close();
 }
-
 iniciar();
