@@ -1,0 +1,18 @@
+¿Qué es setTimeout()?
+
+setTimeout() es una función de JavaScript que permite ejecutar una acción después de cierto tiempo. 
+El tiempo se mide en milisegundos, donde 1000 milisegundos equivalen a 1 segundo.
+
+Esta función es utilizada para crear pausas o retrasos dentro de un programa sin detener completamente su ejecución.
+
+setTimeout(funcion, tiempo);
+
+Parámetros
+funcion: código que se ejecutará después del tiempo indicado.
+tiempo: cantidad de milisegundos que debe esperar.
+
+Asincronía en JavaScript
+
+La asincronía permite que JavaScript siga ejecutando otras tareas mientras espera que termine un proceso.
+
+Esto evita que el programa se detenga completamente durante una espera.
