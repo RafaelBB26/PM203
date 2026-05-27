@@ -1,0 +1,11 @@
+¿PARA QUÉ USAMOS EL PACKAGE.JSON?
+
+El package.json es un archivo de configuración del proyecto.
+En nuestro caso tiene "type": "commonjs", que le dice a Node.js 
+que use require() para conectar archivos entre sí.
+
+Sin este archivo, Node.js v24 da error porque por defecto 
+espera import/export en vez de require().
+
+En resumen: lo necesitamos para que Node.js entienda 
+cómo conectamos cocina.js, caja.js y cliente.js.

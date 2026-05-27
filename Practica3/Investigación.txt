@@ -1,0 +1,86 @@
+map()
+
+¿Qué es?
+es un método de arrays que **transforma cada elemento** del array y retorna un **nuevo array** con los resultados. No modifica el array original.
+
+Sintaxis:
+const nuevoArray = array.map(elemento => transformación);
+
+Ejemplo
+
+const numeros = [1, 2, 3, 4, 5];
+
+const dobles = numeros.map(num => num * 2);
+console.log(dobles); // [2, 4, 6, 8, 10]
+
+Ejemplos aplicados a CoffeeCode:
+
+// Crear un menú dinámico con formato legible
+const menuFormateado = catalogo.map(p => {
+    return ${p.nombre} - $${p.precio}.00 ${p.disponible ? "DISPONIBLE" : "NO DISPONIBLE"};
+});
+// ["Americano - $45.00 DISPONIBLE", "Cappuccino - $55.00 DISPONIBLE", ...]
+
+// Extraer solo los nombres de los productos
+const nombres = catalogo.map(p => p.nombre);
+// ["Americano", "Cappuccino", "Latte", ...]
+
+// Crear promociones (10% de descuento)
+const promociones = catalogo.map(p => ({
+    nombre: p.nombre,
+    precioOriginal: p.precio,
+    precioPromo: +(p.precio * 0.9).toFixed(2),
+    ahorro: +(p.precio * 0.1).toFixed(2)
+}));
+
+
+map() es perfecto para transformar datos de un formato a otro. Piensa en él como: "toma cada elemento, aplícale esta transformación, y dame el resultado".
+
+
+forEach()
+
+¿Qué es?
+es un método de arrays que ejecuta una función por cada elemento** del array. A diferencia de map(), no retorna un nuevo array, olo ejecuta la acción (como imprimir en consola).
+
+Sintaxis:
+
+array.forEach((elemento, indice) => {
+    // acción a realizar con cada elemento
+});
+
+
+| Parámetro | Descripción |
+|---|---|
+| `elemento` | El elemento actual del array |
+| `indice` | (Opcional) La posición del elemento en el array |
+
+Ejemplo
+
+const frutas = [" Manzana", " Banana", " Uva"];
+
+frutas.forEach((fruta, i) => {
+    console.log(`${i + 1}. ${fruta}`);
+});
+// 1.  Manzana
+// 2.  Banana
+// 3.  Uva
+
+Ejemplos aplicados a CoffeeCode:
+
+// Mostrar el menú completo en consola
+catalogo.forEach(p => {
+    console.log(`  ${p.id}. ${p.nombre} — $${p.precio}.00`);
+    console.log(`     ${p.descripcion}`);
+    console.log(`     Estado: ${p.disponible ? "Disponible " : "Agotado "}`);
+    console.log(``);
+});
+
+// Mostrar solo productos disponibles
+const disponibles = catalogo.filter(p => p.disponible);
+disponibles.forEach(p => {
+    console.log(`   ${p.nombre} - $${p.precio}.00`);
+});
+
+¿Cuándo usar map() vs forEach()?
+Usa map() cuando necesitas crear un nuevo array transformado(devuelve un array)
+Usa forEach() cuando necesitas hacer algo con cada elemento sin crear un nuevo array (ej: imprimir, enviar, etc.)
