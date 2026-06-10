@@ -11,7 +11,7 @@ export default function App() {
       
             <Text>------------------ Coponente Nativo-----------------</Text>
 
-      <Image source ={ require ('../assets/wave.png')}/>
+      <Image source ={ require ('./assets/wave.png')}/>
 
       <Text>Hola Mundo React Native</Text>
 
