@@ -11,7 +11,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       
-            <Text>------------------ Coponente Nativo-----------------</Text>
+      <Text>------------------ Coponente Nativo-----------------</Text>
 
       <Image source ={ require ('./assets/wave.png')}/>
 
@@ -23,9 +23,16 @@ export default function App() {
       <Text>------------------ Coponentes Propio Compuesto ------------------ </Text>
       <Saludo2> </Saludo2>
 
-      <Text>------------------ Coponente Perfil-----------------</Text>
-      <Perfil> </Perfil>
+      <Text>------------------ perfil usando objetos Props -----------------</Text>
+      <View style ={styles.container}>
 
+      <Perfil nombre="Rafael Baltazar Bonifacio" carrera="Ingeniería en Sistemas Computacionales" materia="Programación Móvil" cuatrimestre="9"> </Perfil>
+      <Perfil 
+      nombre="Rafael Baltazar Bonifacio" 
+      carrera="Ingeniería en Sistemas Computacionales" 
+      materia="Programación Móvil" 
+      cuatrimestre="9"/>
+      </View>
       <StatusBar style="auto" />
     </View>
   );

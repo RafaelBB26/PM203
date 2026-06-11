@@ -1,0 +1,21 @@
+¿Cómo contruye interfaces React Native?
+
+React Native utiliza componentes para contruir la interfa de usuario 
+un componente es un pieza reutilizable de la aplicación 
+- un botón 
+- un formulario
+- una tarjeta de perfil
+
+componentes Nativos 
+<Text> Hola Mundo RN! </Text>
+<Button title="hola mundo"></Button>
+
+COMPONENTES PROPIOS
+son componentes creados por el desarrollador, es una función de JAvaScript que devuelve elementos visuales. 
+
+1. Un componente puede utilizarse varias veces. 
+2. Permiten dividir una aplicación grande en partes más pequeñas.
+3. Si modificamos un componente, el cambio se refleja en todos los lugares donde se utiliza. 
+
+
+
