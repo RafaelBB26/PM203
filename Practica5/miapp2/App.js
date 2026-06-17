@@ -10,28 +10,21 @@ import { Perfil } from './Components/Perfil';
 export default function App() {
   return (
     <View style={styles.container}>
-      
-      <Text>------------------ Coponente Nativo-----------------</Text>
 
-      <Image source ={ require ('./assets/wave.png')}/>
-
-      <Text>Hola Mundo React Native</Text>
-
-      <Text>------------------ Coponentes Propio Simple-----------------</Text>
-      <Saludo> </Saludo>
-
-      <Text>------------------ Coponentes Propio Compuesto ------------------ </Text>
-      <Saludo2> </Saludo2>
-
-      <Text>------------------ perfil usando objetos Props -----------------</Text>
+      <Text>------------------ perfil -----------------</Text>
       <View style ={styles.container}>
+      
 
-      <Perfil nombre="Rafael Baltazar Bonifacio" carrera="Ingeniería en Sistemas Computacionales" materia="Programación Móvil" cuatrimestre="9"> </Perfil>
+      <Perfil estiloExt={styles.tarjetaRoja}nombre="Rafael Baltazar Bonifacio" carrera="Ingeniería en Sistemas Computacionales" materia="Programación Móvil" cuatrimestre="9"> </Perfil>
       <Perfil 
+      estiloExt={styles.tarjetaVerda}
       nombre="Rafael Baltazar Bonifacio" 
       carrera="Ingeniería en Sistemas Computacionales" 
       materia="Programación Móvil" 
       cuatrimestre="9"/>
+
+      <Perfil estiloExt={styles.tarjetaRoja}nombre="Rafael Baltazar Bonifacio" carrera="Ingeniería en Sistemas Computacionales" materia="Programación Móvil" cuatrimestre="9"> </Perfil>
+
       </View>
       <StatusBar style="auto" />
     </View>
@@ -43,7 +36,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'flex-start',
+    justifyContent: 'space-around',
+    flexDirection: 'row',
   },
+
+  tarjetaRoja:{ backgroundColor: '#FF6B6B'},
+  tarjetaVerda:{backgroundColor: '#6BCB77'},
 });
