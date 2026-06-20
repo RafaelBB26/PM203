@@ -19,7 +19,7 @@ export default function SafeAreaScreen() {
     <SafeAreaView style={styles.container}>
 
       <StatusBar style="auto" />
-//
+
       <ScrollView
         contentContainerStyle={styles.scrollContainer}
         showsVerticalScrollIndicator={true}
@@ -108,7 +108,6 @@ export default function SafeAreaScreen() {
           </Text>
         </View>
 
-        //
 
         {/* Ejemplo de State */}
         <View style={styles.tarjeta}>
