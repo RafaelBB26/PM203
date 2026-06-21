@@ -94,7 +94,7 @@ export default function SafeAreaScreen() {
           <Text style={styles.subtitulo}>Películas Favoritas</Text>
           <Text style={styles.texto}>
             La Monja{"\n"}
-            El Conjuro{"\n"}
+            El Conjuro {"\n"}
             Annabelle
           </Text>
         </View>
@@ -107,7 +107,6 @@ export default function SafeAreaScreen() {
             en React Native.
           </Text>
         </View>
-
 
         {/* Ejemplo de State */}
         <View style={styles.tarjeta}>
@@ -150,6 +149,7 @@ const styles = StyleSheet.create({
 
   scrollContainer: {
     padding: 20,
+    paddingTop: 35,
     paddingBottom: 40,
   },
 
@@ -158,7 +158,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     color: '#0F172A',
-    marginVertical: 20,
+    marginTop: 10,
+    marginBottom: 20,
   },
 
   tarjeta: {
