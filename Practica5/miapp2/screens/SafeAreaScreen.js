@@ -1,13 +1,6 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import {
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  View,
-  Text,
-  Pressable,
-} from 'react-native';
+import {SafeAreaView, ScrollView, StyleSheet, View, Text, Pressable} from 'react-native';
 
 export default function SafeAreaScreen() {
 
