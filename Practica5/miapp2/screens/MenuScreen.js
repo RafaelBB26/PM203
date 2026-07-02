@@ -52,7 +52,7 @@ export default function MenuScreen() {
                             
                         <Button onPress={ () => setScreen('activityIndicator')} title ='Practica: Activity Indicator'/>
 
-                        <Button onPress={ () => setScreen('imagenBackground')} title ='Practica: Imagen Background'/>
+                        <Button onPress={ () => setScreen('imageBackground')} title ='Practica: Imagen Background'/>
                             
                         <Button onPress={ () => setScreen('modal')} title ='Practica: Modal'/>             
 
