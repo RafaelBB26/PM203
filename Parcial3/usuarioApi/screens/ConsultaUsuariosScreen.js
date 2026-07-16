@@ -1,16 +1,10 @@
 import React from 'react';
 import {SafeAreaView,View,Text,FlatList,StyleSheet,
 } from 'react-native';
+import { useUsuarios } from '../context/UsuariosContext';
 
 export default function ConsultaUsuariosScreen() {
-
-  const usuarios = [
-    { id: '1', nombre: 'Isay Guerra', edad: 22 },
-    { id: '2', nombre: 'Ana López', edad: 19 },
-    { id: '3', nombre: 'Carlos Gonzalez', edad: 25 },
-    { id: '4', nombre: 'Bjork Guerra', edad: 21 },
-    { id: '5', nombre: 'Luisa Martínez', edad: 28 },
-  ];
+  const { usuarios } = useUsuarios();
 
   const renderTarjeta = ({ item }) => (
     <View style={styles.card}>
@@ -38,6 +32,7 @@ export default function ConsultaUsuariosScreen() {
         data={usuarios}
         keyExtractor={(item) => item.id}
         renderItem={renderTarjeta}
+        ListEmptyComponent={<Text style={styles.vacio}>Aún no hay usuarios registrados.</Text>}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: 20 }}
       />
@@ -94,6 +89,13 @@ const styles = StyleSheet.create({
   info: {
     fontSize: 16,
     color: '#4B5563',
+  },
+
+  vacio: {
+    textAlign: 'center',
+    color: '#4B5563',
+    fontSize: 16,
+    marginTop: 30,
   },
 
 });
