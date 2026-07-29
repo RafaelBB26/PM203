@@ -1,10 +1,23 @@
-import React from 'react';
-import {SafeAreaView,View,Text,FlatList,StyleSheet,
-} from 'react-native';
+import React,{useState,useEffect}from 'react';
+import {SafeAreaView,View,Text,FlatList,StyleSheet,} from 'react-native';
 import { useUsuarios } from '../context/UsuariosContext';
 
 export default function ConsultaUsuariosScreen() {
-  const { usuarios } = useUsuarios();
+  const [usuarios,setUsuarios] = useUsuarios([]);
+  const obtenerUsuarios = async () => {
+    try{
+      const respuesta= await fetch('http://172.20.10.10:5001/v1/usuarios/');
+      const datos = await respuesta.json();
+      console.log("Respuesta API: ", datos);
+      setUsuarios(datos.usuarios); 
+
+    }catch(error){
+      console.log("Error API: ", error);
+    }
+
+  };
+
+  useEffect(() => {obtenerUsuarios();}, []);
 
   const renderTarjeta = ({ item }) => (
     <View style={styles.card}>

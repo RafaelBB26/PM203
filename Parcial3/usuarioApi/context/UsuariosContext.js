@@ -3,7 +3,7 @@ import { createContext, useContext, useState } from 'react';
 const UsuariosContext = createContext();
 
 export function UsuariosProvider({ children }) {
-  const [usuarios] = useState([
+  const [usuarios, setUsuarios] = useState([
     { id: '1', nombre: 'Isay Guerra', edad: 22 },
     { id: '2', nombre: 'Ana López', edad: 19 },
     { id: '3', nombre: 'Carlos Gonzalez', edad: 25 },
@@ -12,7 +12,7 @@ export function UsuariosProvider({ children }) {
   ]);
 
   return (
-    <UsuariosContext.Provider value={{ usuarios }}>
+    <UsuariosContext.Provider value={[usuarios, setUsuarios]}>
       {children}
     </UsuariosContext.Provider>
   );
