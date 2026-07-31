@@ -22,7 +22,7 @@ const guardarUsuario = async () => {
   }
   try {
     setCargando(true);
-    const respuesta = await fetch('http://172.20.10.10:5001/v1/usuarios/',{
+    const respuesta = await fetch('http://192.168.100.74:5001/v1/usuarios/',{
       method: 'POST',
       headers:{"Content-Type":"application/json" },
       body: JSON.stringify({nombre:nombre,edad:edad})

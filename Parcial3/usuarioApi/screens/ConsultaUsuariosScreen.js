@@ -1,12 +1,13 @@
-import React,{useState,useEffect}from 'react';
-import {SafeAreaView,View,Text,FlatList,StyleSheet,} from 'react-native';
+import React,{useEffect}from 'react';
+import {SafeAreaView,View,Text,FlatList,StyleSheet,Pressable} from 'react-native';
+import { router } from 'expo-router';
 import { useUsuarios } from '../context/UsuariosContext';
 
 export default function ConsultaUsuariosScreen() {
   const [usuarios,setUsuarios] = useUsuarios([]);
   const obtenerUsuarios = async () => {
     try{
-      const respuesta= await fetch('http://172.20.10.10:5001/v1/usuarios/');
+      const respuesta= await fetch('http://192.168.100.74:5001/v1/usuarios/');
       const datos = await respuesta.json();
       console.log("Respuesta API: ", datos);
       setUsuarios(datos.usuarios); 
@@ -29,6 +30,20 @@ export default function ConsultaUsuariosScreen() {
       <Text style={styles.info}>
         Edad: {item.edad} años
       </Text>
+
+      <Pressable
+        style={({ pressed }) => [styles.botonDetalle, pressed && styles.botonDetallePresionado]}
+        onPress={() => router.push({
+          pathname: '/detalle',
+          params: {
+            id: item.id,
+            nombre: item.nombre,
+            edad: item.edad,
+          },
+        })}
+      >
+        <Text style={styles.textoBotonDetalle}>Ver detalle</Text>
+      </Pressable>
 
     </View>
   );
@@ -102,6 +117,26 @@ const styles = StyleSheet.create({
   info: {
     fontSize: 16,
     color: '#4B5563',
+  },
+
+  botonDetalle: {
+    alignSelf: 'flex-start',
+    backgroundColor: '#2563EB',
+    borderRadius: 8,
+    marginTop: 16,
+    paddingHorizontal: 14,
+    paddingVertical: 10,
+  },
+
+  botonDetallePresionado: {
+    backgroundColor: '#1D4ED8',
+    opacity: 0.9,
+  },
+
+  textoBotonDetalle: {
+    color: '#FFFFFF',
+    fontSize: 15,
+    fontWeight: '600',
   },
 
   vacio: {
